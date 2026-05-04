@@ -183,7 +183,7 @@ def trilateration_correct(circles_data):
 # FUNZIONE PER SCARICARE TERREMOTI
 # ============================================================================
 
-def get_earthquakes_from_ingv(days=7, min_magnitude=3.0):
+def get_earthquakes_from_ingv(days=365, min_magnitude=3.0):
     """Scarica terremoti dall'INGV"""
     end_date = datetime.now()
     start_date = end_date - timedelta(days=days)
@@ -483,7 +483,7 @@ with col_controls:
     
     col_7gg, col_30gg, col_esempio = st.columns(3)
     with col_7gg:
-        if st.button("🔍 7gg", use_container_width=True):
+        if st.button("🔍 365gg", use_container_width=True):
             with st.spinner("Scaricamento..."):
                 df, err = get_earthquakes_from_ingv(days=7)
                 if df is not None and not df.empty:
